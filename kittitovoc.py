@@ -375,4 +375,3 @@ def lisa(kitti_dir, output, label=None):
 
 if __name__ == '__main__':
     voc("","Voc")
-    
