@@ -334,24 +334,24 @@ def voc(kitti_dir, voc_dir, label=None):
     print("Convert kitti to voc")
 
     # Make all directories for voc dataset
-    make_voc_directories(voc_dir)
+    # make_voc_directories(voc_dir)
 
-    # Iterate through kitti training data
-    for f in os.listdir(kitti_dir + "Dataset/label_2/"):
-        fname = (kitti_dir + "Dataset/image_2/" + f).split(".txt")[0] + ".png"
-        if os.path.isfile(fname):
-            img = Image.open(fname)
-            w, h = img.size
-            img.close()
-            labels, coords = parse_labels_voc(os.path.join(kitti_dir +
-                                                           "Dataset/label_2/" + f))
-            annotation = write_voc_file(fname, labels, coords, w, h)
-            et = etree.ElementTree(annotation)
-            et.write(voc_dir + "Dataset/label_2/" + f.split(".txt")[0] + ".xml", pretty_print=True)
+    # # Iterate through kitti training data
+    # for f in os.listdir(kitti_dir + "Dataset/label_2/"):
+    #     fname = (kitti_dir + "Dataset/image_2/" + f).split(".txt")[0] + ".png"
+    #     if os.path.isfile(fname):
+    #         img = Image.open(fname)
+    #         w, h = img.size
+    #         img.close()
+    #         labels, coords = parse_labels_voc(os.path.join(kitti_dir +
+    #                                                        "Dataset/label_2/" + f))
+    #         annotation = write_voc_file(fname, labels, coords, w, h)
+    #         et = etree.ElementTree(annotation)
+    #         et.write(voc_dir + "Dataset/label_2/" + f.split(".txt")[0] + ".xml", pretty_print=True)
 
     # Iterate through kitti validation data
     for f in os.listdir(kitti_dir + "Dataset/label_2_test"):
-        fname = (kitti_dir + "Dataset/image_2_test" + f).split(".txt")[0] + ".png"
+        fname = (kitti_dir + "Dataset/image_2_test/" + f).split(".txt")[0] + ".png"
         if os.path.isfile(fname):
             img = Image.open(fname)
             w, h = img.size
